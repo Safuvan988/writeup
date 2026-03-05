@@ -43,7 +43,7 @@ class AppSnackbar {
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
-                      color: AppColors.white,
+                      color: AppColors.forest6,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -51,7 +51,7 @@ class AppSnackbar {
                     message,
                     style: const TextStyle(
                       fontSize: 14,
-                      color: AppColors.forest1,
+                      color: AppColors.forest4,
                     ),
                   ),
                 ],
@@ -73,12 +73,24 @@ class AppSnackbar {
             ),
           ],
         ),
-        backgroundColor: AppColors.surface,
+        backgroundColor: AppColors.forest1,
         behavior: SnackBarBehavior.floating,
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         elevation: 10,
-        margin: const EdgeInsets.all(20),
+        margin: EdgeInsets.only(
+          left: 20,
+          right: 20,
+          bottom: (scaffoldMessengerKey.currentContext != null
+              ? MediaQuery.of(
+                      scaffoldMessengerKey.currentContext!,
+                    ).size.height -
+                    MediaQuery.of(
+                      scaffoldMessengerKey.currentContext!,
+                    ).padding.top -
+                    160
+              : 600),
+        ),
         duration: duration,
       ),
     );

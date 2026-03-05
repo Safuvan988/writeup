@@ -432,35 +432,131 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       height: 46,
                       child: OutlinedButton.icon(
                         onPressed: () async {
-                          final bool? confirm = await showDialog<bool>(
+                          final bool?
+                          confirm = await showModalBottomSheet<bool>(
                             context: context,
-                            builder: (context) => AlertDialog(
-                              backgroundColor: AppColors.surface,
-                              title: const Text(
-                                'Logout',
-                                style: TextStyle(color: AppColors.white),
-                              ),
-                              content: const Text(
-                                'Are you sure you want to logout?',
-                                style: TextStyle(color: AppColors.forest1),
-                              ),
-                              actions: [
-                                TextButton(
-                                  onPressed: () =>
-                                      Navigator.pop(context, false),
-                                  child: const Text(
-                                    'Cancel',
-                                    style: TextStyle(color: AppColors.forest2),
+                            backgroundColor: Colors.transparent,
+                            builder: (context) => Container(
+                              margin: const EdgeInsets.all(16),
+                              decoration: BoxDecoration(
+                                color: AppColors.surface,
+                                borderRadius: BorderRadius.circular(28),
+                                border: Border.all(
+                                  color: AppColors.forest3.withValues(
+                                    alpha: 0.4,
                                   ),
+                                  width: 1,
                                 ),
-                                TextButton(
-                                  onPressed: () => Navigator.pop(context, true),
-                                  style: TextButton.styleFrom(
-                                    foregroundColor: AppColors.error,
+                              ),
+                              padding: const EdgeInsets.fromLTRB(
+                                24,
+                                28,
+                                24,
+                                28,
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  // Icon badge
+                                  Container(
+                                    width: 64,
+                                    height: 64,
+                                    decoration: BoxDecoration(
+                                      color: AppColors.error.withValues(
+                                        alpha: 0.12,
+                                      ),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: SvgPicture.asset(
+                                      'assets/icons/logout-01-stroke-rounded.svg',
+                                      colorFilter: const ColorFilter.mode(
+                                        AppColors.error,
+                                        BlendMode.srcIn,
+                                      ),
+                                      width: 30,
+                                      height: 30,
+                                      fit: BoxFit.scaleDown,
+                                    ),
                                   ),
-                                  child: const Text('Logout'),
-                                ),
-                              ],
+                                  const SizedBox(height: 20),
+                                  const Text(
+                                    'Log Out',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: AppColors.white,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  const Text(
+                                    'Are you sure you want to log out?\nYou\'ll need to sign in again to continue.',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: AppColors.forest2,
+                                      height: 1.5,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 28),
+                                  // Logout button
+                                  SizedBox(
+                                    width: double.infinity,
+                                    height: 50,
+                                    child: ElevatedButton(
+                                      onPressed: () =>
+                                          Navigator.pop(context, true),
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: AppColors.error,
+                                        foregroundColor: AppColors.white,
+                                        elevation: 0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            14,
+                                          ),
+                                        ),
+                                      ),
+                                      child: const Text(
+                                        'Yes, Log Out',
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 12),
+                                  // Cancel button
+                                  SizedBox(
+                                    width: double.infinity,
+                                    height: 50,
+                                    child: OutlinedButton(
+                                      onPressed: () =>
+                                          Navigator.pop(context, false),
+                                      style: OutlinedButton.styleFrom(
+                                        foregroundColor: AppColors.forest2,
+                                        side: BorderSide(
+                                          color: AppColors.forest3.withValues(
+                                            alpha: 0.6,
+                                          ),
+                                          width: 1.5,
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            14,
+                                          ),
+                                        ),
+                                      ),
+                                      child: const Text(
+                                        'Cancel',
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           );
                           if (confirm == true) {

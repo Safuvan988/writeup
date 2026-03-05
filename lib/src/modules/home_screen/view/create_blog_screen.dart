@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:write_up/app/theme_data/app_colors.dart';
 import 'package:write_up/app/utils/snackbar_utils.dart';
-import 'package:write_up/gen/assets.gen.dart';
 import 'package:write_up/src/core/services/upload_service.dart';
 import 'package:write_up/src/core/services/storage_service.dart';
 import 'package:write_up/src/modules/home_screen/controller/blog_service.dart';
@@ -315,14 +314,10 @@ class _CreateBlogScreenState extends State<CreateBlogScreen> {
                             : Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Image.asset(
-                                      Assets.images.logo,
-                                      width: 60,
-                                      height: 60,
-                                      fit: BoxFit.contain,
-                                    ),
+                                  Icon(
+                                    Icons.add_photo_alternate_outlined,
+                                    size: 48,
+                                    color: AppColors.forest2,
                                   ),
                                   const SizedBox(height: 8),
                                   Text(
@@ -349,12 +344,7 @@ class _CreateBlogScreenState extends State<CreateBlogScreen> {
                               color: AppColors.white,
                             ),
                           )
-                        : Image.asset(
-                            Assets.images.logo,
-                            width: 22,
-                            height: 22,
-                            fit: BoxFit.contain,
-                          ),
+                        : const Icon(Icons.cloud_upload_outlined, size: 22),
                     label: Text(_isUploading ? 'Uploading...' : 'Upload Image'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.forest3,

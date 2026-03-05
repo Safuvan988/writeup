@@ -18,9 +18,9 @@ class AppColors {
   static const Color accent = forest1;
 
   // ── Backgrounds ────────────────────────────────────────────────────────────
-  static const Color background = forest6;
-  static const Color surface = forest5;
-  static const Color surfaceLight = forest4;
+  static const Color background = forest5; // slightly lighter
+  static const Color surface = forest4; // slightly lighter
+  static const Color surfaceLight = forest3; // slightly lighter
 
   // ── Text ───────────────────────────────────────────────────────────────────
   static const Color textDark = Colors.white; // headings / primary text

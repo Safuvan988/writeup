@@ -65,10 +65,10 @@ class BlogCard extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
-          color: AppColors.surface,
+          color: AppColors.surfaceLight,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: AppColors.forest3.withValues(alpha: 0.5),
+            color: AppColors.forest2.withValues(alpha: 0.4),
             width: 1,
           ),
           boxShadow: [

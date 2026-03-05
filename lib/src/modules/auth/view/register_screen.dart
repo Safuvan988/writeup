@@ -128,7 +128,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   const SizedBox(height: 6),
                   const Text(
-                    'Ideas into Words',
+                    'Anything into Words',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 13,
