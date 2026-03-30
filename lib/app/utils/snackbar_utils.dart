@@ -11,7 +11,7 @@ class AppSnackbar {
     required String message,
     String? iconAsset = 'assets/icons/alert-01-stroke-rounded.svg',
     VoidCallback? onDismiss,
-    Duration duration = const Duration(milliseconds: 2000),
+    Duration duration = const Duration(milliseconds: 900),
   }) {
     final state = scaffoldMessengerKey.currentState;
     if (state == null) return;

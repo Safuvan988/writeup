@@ -1,4 +1,4 @@
-﻿import 'dart:math';
+import 'dart:math';
 import 'package:write_up/app/utils/snackbar_utils.dart';
 import 'package:write_up/src/modules/profile/view/profile_screen.dart';
 import 'package:write_up/src/modules/home_screen/view/bookmarks_screen.dart';
@@ -499,11 +499,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   onBookmarkToggle: () =>
                                       _toggleBookmark(blog.id!),
                                   onShare: () {
-                                    SharePlus.instance.share(
-                                      ShareParams(
-                                        text:
-                                            'Check out this blog: ${blog.title}\n\n${blog.description}',
-                                      ),
+                                    Share.share(
+                                      'Check out this blog: ${blog.title}\n\n${blog.description}',
                                     );
                                   },
                                   onTap: () {

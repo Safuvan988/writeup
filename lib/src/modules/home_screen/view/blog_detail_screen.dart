@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:write_up/app/theme_data/app_colors.dart';
 import 'package:write_up/src/modules/home_screen/model/blog_model.dart';
@@ -101,11 +100,8 @@ class _BlogDetailScreenState extends State<BlogDetailScreen> {
           IconButton(
             icon: const Icon(Icons.share_outlined, color: AppColors.white),
             onPressed: () {
-              SharePlus.instance.share(
-                ShareParams(
-                  text:
-                      'Check out this blog: ${widget.blog.title}\n\n${widget.blog.description}',
-                ),
+              Share.share(
+                'Check out this blog: ${widget.blog.title}\n\n${widget.blog.description}',
               );
             },
           ),

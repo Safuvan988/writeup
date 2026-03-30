@@ -237,11 +237,8 @@ class _BookmarksScreenState extends State<BookmarksScreen> {
                             isBookmarked: true,
                             onBookmarkToggle: () => _toggleBookmark(blog.id!),
                             onShare: () {
-                              SharePlus.instance.share(
-                                ShareParams(
-                                  text:
-                                      'Check out this blog: ${blog.title}\n\n${blog.description}',
-                                ),
+                              Share.share(
+                                'Check out this blog: ${blog.title}\n\n${blog.description}',
                               );
                             },
                             onTap: () {

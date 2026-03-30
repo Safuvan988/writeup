@@ -689,11 +689,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         isBookmarked: _bookmarkedIds.contains(blog.id),
                         onBookmarkToggle: () => _toggleBookmark(blog.id!),
                         onShare: () {
-                          SharePlus.instance.share(
-                            ShareParams(
-                              text:
-                                  'Check out this blog: ${blog.title}\n\n${blog.description}',
-                            ),
+                          Share.share(
+                            'Check out this blog: ${blog.title}\n\n${blog.description}',
                           );
                         },
                         onTap: () {
